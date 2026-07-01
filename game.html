@@ -1,0 +1,1358 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>אוספת רמזים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --turq:#00A087;
+  --turq2:#18c3ad;
+  --coral:#e76f51;
+  --coral-dark:#cf553d;
+  --green:#87bd43;
+  --yellow:#ffd55b;
+  --cream:#fff8e9;
+  --paper:#fff9df;
+  --ice:#effdf9;
+  --text:#22323c;
+  --muted:#667985;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  font-family:"Heebo",Arial,sans-serif;
+  background:
+    radial-gradient(circle at 12% 12%, rgba(255,213,91,.42), transparent 24%),
+    radial-gradient(circle at 86% 16%, rgba(0,160,135,.24), transparent 28%),
+    radial-gradient(circle at 13% 86%, rgba(135,189,67,.25), transparent 31%),
+    linear-gradient(135deg,#fff,#effdf9 52%,#fff8e9);
+  color:var(--text);
+}
+.page{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:22px;
+}
+.app{
+  width:100%;
+  max-width:1120px;
+}
+.shell{
+  position:relative;
+  background:rgba(255,255,255,.86);
+  border:1px solid rgba(0,160,135,.16);
+  box-shadow:0 26px 90px rgba(0,100,85,.16);
+  border-radius:44px 44px 44px 130px;
+  overflow:hidden;
+}
+header{
+  min-height:168px;
+  padding:30px 34px 58px;
+  background:
+    radial-gradient(circle at 18% 8%, rgba(255,213,91,.58), transparent 32%),
+    linear-gradient(135deg,var(--turq),#58cfbf);
+  color:white;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  position:relative;
+}
+header:after{
+  content:"";
+  position:absolute;
+  left:-8%;
+  right:-8%;
+  bottom:-74px;
+  height:118px;
+  background:white;
+  border-radius:50% 50% 0 0 / 78% 78% 0 0;
+}
+.logo{
+  width:86px;height:86px;border-radius:24px;background:white;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  box-shadow:0 12px 28px rgba(0,0,0,.14);
+  position:relative;z-index:1;flex:0 0 auto;
+}
+.logo img{max-width:100%;max-height:100%;object-fit:contain}
+.brand{position:relative;z-index:1}
+h1{margin:0 0 4px;font-size:40px;line-height:1.05;font-weight:900}
+.subtitle{margin:0;font-size:18px;line-height:1.45;font-weight:500}
+main{position:relative;z-index:2;padding:46px 38px 38px}
+.meta{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:15px;font-weight:800;margin-bottom:8px}
+.progress{height:13px;background:#dff4ef;border-radius:99px;overflow:hidden;margin-bottom:28px;box-shadow:inset 0 1px 4px rgba(0,100,85,.13)}
+.bar{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--turq),var(--coral),var(--yellow));transition:.35s;border-radius:99px}
+.screen{display:none}
+.screen.active{display:block;animation:screenIn .45s ease both}
+@keyframes screenIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+h2{
+  margin:0 0 18px;
+  font-size:38px;
+  line-height:1.14;
+  color:var(--turq);
+  font-weight:900;
+}
+.lead{font-size:20px;line-height:1.78;margin:0 0 18px;color:#263943}
+.lead strong{color:var(--turq)}
+
+button,.btn,a.buttonLike{
+  border:0;border-radius:999px;
+  background:linear-gradient(135deg,var(--turq),var(--turq2));
+  color:white;
+  font-family:"Heebo",Arial,sans-serif;
+  font-size:19px;
+  font-weight:900;
+  padding:15px 32px;
+  cursor:pointer;
+  box-shadow:0 14px 28px rgba(0,160,135,.24);
+  transition:.18s;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+button:hover,.btn:hover,a.buttonLike:hover{transform:translateY(-2px)}
+button:disabled{opacity:.45;cursor:not-allowed;transform:none}
+.btn2{background:white;color:var(--turq);border:1px solid rgba(0,160,135,.25);box-shadow:none}
+
+/* INTRO */
+.game-intro{
+  position:relative;
+  min-height:650px;
+  display:grid;
+  grid-template-rows:auto 1fr auto;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+}
+.game-intro:before{
+  content:"";
+  position:absolute;
+  inset:32px 4% 44px;
+  background:
+    radial-gradient(circle at 50% 48%, rgba(255,213,91,.26), transparent 24%),
+    radial-gradient(circle at 28% 62%, rgba(135,189,67,.16), transparent 26%),
+    radial-gradient(circle at 70% 32%, rgba(0,160,135,.16), transparent 28%),
+    linear-gradient(145deg,rgba(239,253,249,.78),rgba(255,248,233,.74));
+  border:2px solid rgba(0,160,135,.14);
+  border-radius:44% 56% 48% 52% / 44% 45% 55% 56%;
+  z-index:-2;
+}
+.intro-head{position:relative;z-index:4;padding-top:16px}
+.intro-head h2{margin:0 0 8px;font-size:48px}
+.intro-head p{margin:0 auto;max-width:680px;font-size:20px;line-height:1.55;color:#4d6570}
+.intro-play-area{position:relative;min-height:390px;display:flex;align-items:center;justify-content:center}
+.intro-bag-button{
+  position:relative;
+  width:min(44%,430px);
+  min-width:300px;
+  background:transparent!important;
+  box-shadow:none!important;
+  padding:0;
+  border-radius:0;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:12px;
+}
+.intro-bag-button:hover,.intro-bag-button:focus,.intro-bag-button:active{
+  background:transparent!important;
+  box-shadow:none!important;
+  outline:none!important;
+}
+.intro-open-label{
+  display:inline-block;
+  background:var(--paper);
+  border:2px solid rgba(231,111,81,.48);
+  color:var(--turq);
+  border-radius:999px;
+  padding:12px 26px;
+  font-size:21px;
+  font-weight:900;
+  box-shadow:0 14px 26px rgba(0,100,85,.14);
+}
+.intro-click-bag{
+  width:100%;
+  display:block;
+  filter:drop-shadow(0 30px 36px rgba(0,100,85,.24));
+  animation:bagFloat 3s ease-in-out infinite;
+}
+.intro-bag-button:hover .intro-click-bag{filter:drop-shadow(0 30px 36px rgba(0,100,85,.24))!important}
+@keyframes bagFloat{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-10px) rotate(1deg)}}
+.floating-clue{
+  position:absolute;
+  min-width:118px;
+  background:var(--paper);
+  border:2px solid rgba(231,111,81,.35);
+  border-radius:12px 20px 14px 18px;
+  padding:12px 18px;
+  font-size:18px;
+  font-weight:900;
+  color:#25404b;
+  box-shadow:0 16px 28px rgba(0,100,85,.14);
+  z-index:2;
+  animation:clueFloat 4s ease-in-out infinite;
+}
+.floating-clue:before,.card:before,.result-note:not(.main):before{
+  content:"";
+  position:absolute;
+  width:12px;height:12px;border-radius:50%;
+  background:var(--coral);
+  top:7px;right:50%;transform:translateX(50%);
+  box-shadow:0 2px 5px rgba(0,0,0,.14);
+}
+.fc1{top:30px;right:13%;transform:rotate(7deg);animation-delay:.1s}
+.fc2{top:88px;left:12%;transform:rotate(-7deg);animation-delay:.5s}
+.fc3{bottom:88px;right:9%;transform:rotate(-5deg);animation-delay:.9s}
+.fc4{bottom:54px;left:16%;transform:rotate(6deg);animation-delay:1.3s}
+.fc5{top:190px;right:4%;transform:rotate(-4deg);animation-delay:1.7s}
+.fc6{top:210px;left:4%;transform:rotate(5deg);animation-delay:2.1s}
+@keyframes clueFloat{0%,100%{margin-top:0}50%{margin-top:-9px}}
+.intro-bottom-text{position:relative;z-index:3;max-width:860px;margin:0 auto;padding:6px 12px 24px;font-size:19px;line-height:1.7}
+.intro-bottom-text p{margin:0 0 8px}
+
+/* SIGNUP */
+.signup-screen{max-width:880px;margin:0 auto;text-align:center}
+.signup-screen .lead{margin-left:auto;margin-right:auto}
+.signup{
+  max-width:720px;
+  margin:24px auto 0;
+  background:linear-gradient(180deg,#fff,#f6fffb);
+  border:2px solid rgba(0,160,135,.18);
+  border-radius:36px 36px 36px 80px;
+  padding:26px;
+  box-shadow:0 12px 30px rgba(0,100,85,.08);
+}
+.after-signup-btn{
+  margin-top:18px;
+  font-size:21px;
+  padding:16px 34px;
+  background:linear-gradient(135deg,var(--turq),var(--coral));
+  animation:softPulse 2.3s ease-in-out infinite;
+}
+@keyframes softPulse{
+  0%,100%{box-shadow:0 14px 28px rgba(0,160,135,.22);transform:scale(1)}
+  50%{box-shadow:0 0 0 8px rgba(0,160,135,.10),0 18px 36px rgba(231,111,81,.18);transform:scale(1.025)}
+}
+
+/* QUIZ */
+.quiz-layout{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:28px;align-items:stretch}
+.question-card{
+  background:rgba(255,255,255,.75);
+  border:1px solid rgba(0,160,135,.14);
+  border-radius:38px 70px 36px 80px;
+  padding:26px;
+  box-shadow:0 12px 28px rgba(0,100,85,.07);
+}
+.q{font-size:27px;font-weight:900;color:var(--turq);margin:0 0 8px;line-height:1.35}
+.inst{color:var(--muted);font-size:16px;margin-bottom:20px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:stretch}
+.card{
+  background:var(--paper);
+  border:2px solid rgba(231,111,81,.34);
+  border-radius:14px 22px 16px 20px;
+  padding:18px 17px 16px;
+  min-height:92px;
+  display:flex;align-items:center;
+  font-size:17px;font-weight:800;line-height:1.35;
+  cursor:grab;user-select:none;
+  box-shadow:0 14px 24px rgba(0,100,85,.12);
+  transition:.18s ease;
+  position:relative;
+  transform:rotate(var(--rot,0deg));
+}
+.card:nth-child(1){--rot:1.5deg}.card:nth-child(2){--rot:-1.2deg}.card:nth-child(3){--rot:.8deg}.card:nth-child(4){--rot:-1.6deg}.card:nth-child(5){--rot:1.1deg}
+.card:hover{transform:translateY(-3px) rotate(var(--rot,0deg));border-color:var(--coral)}
+.card.dragging{opacity:.42}
+.card.disabled{opacity:.34;pointer-events:none;filter:grayscale(.2)}
+.cards.return-zone{outline:3px dashed rgba(0,160,135,.38);outline-offset:10px;border-radius:26px;background:rgba(239,253,249,.5)}
+.actions{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-top:22px}
+.drop-panel{min-height:470px;position:relative;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;overflow:visible}
+.bag-target{width:100%;min-height:470px;position:relative;display:flex;align-items:center;justify-content:center;overflow:visible}
+.bag-target.over .bag-main-img{transform:scale(1.04) rotate(-1deg)}
+.bag-main-img{width:min(96%,420px);max-height:400px;object-fit:contain;filter:drop-shadow(0 28px 34px rgba(0,100,85,.23));transition:.22s ease}
+.bag-title-on{
+  position:absolute;top:8px;right:9%;
+  background:#fff;border:1px solid rgba(0,160,135,.22);
+  border-radius:999px;padding:9px 16px;font-weight:900;color:var(--turq);
+  box-shadow:0 10px 20px rgba(0,100,85,.10);
+}
+.bag-hint-on{
+  position:absolute;bottom:16px;left:7%;right:7%;
+  background:rgba(255,255,255,.9);border:1px solid rgba(0,160,135,.18);
+  border-radius:18px;padding:11px 14px;font-size:15px;color:var(--muted);line-height:1.45;text-align:center;
+}
+.clue-on-bag{
+  position:absolute;top:45%;right:50%;
+  transform:translate(50%,-50%) rotate(-2deg);
+  width:min(82%,330px);
+  background:var(--paper);
+  border:2px solid rgba(231,111,81,.48);
+  border-radius:14px 22px 16px 20px;
+  padding:18px 20px;
+  font-size:18px;font-weight:900;line-height:1.45;color:#25404b;
+  box-shadow:0 18px 30px rgba(0,100,85,.18);
+  text-align:center;
+  cursor:grab;
+}
+.clue-on-bag:after{
+  content:"גררי חזרה כדי לבחור מחדש";
+  display:block;margin-top:8px;font-size:13px;font-weight:600;color:var(--muted);
+}
+.next-under-bag{
+  margin-top:-20px;
+  min-width:230px;
+  font-size:22px;
+  padding:16px 34px;
+  background:linear-gradient(135deg,var(--turq),var(--coral));
+  box-shadow:0 16px 32px rgba(0,160,135,.26);
+  opacity:0;pointer-events:none;
+  transform:translateY(8px) scale(.96);
+}
+.next-under-bag.ready{
+  opacity:1;pointer-events:auto;
+  animation:nextPop .95s cubic-bezier(.18,.95,.24,1.18) both;
+}
+@keyframes nextPop{
+  0%{transform:translateY(8px) scale(.92);box-shadow:0 8px 20px rgba(0,160,135,.18)}
+  45%{transform:translateY(0) scale(1.09);box-shadow:0 0 0 8px rgba(231,111,81,.16),0 18px 36px rgba(0,160,135,.30)}
+  100%{transform:translateY(0) scale(1);box-shadow:0 16px 32px rgba(0,160,135,.26)}
+}
+
+/* RESULT */
+.result-stage{position:relative;min-height:900px;padding:20px 10px 16px}
+.result-title{text-align:center;position:relative;z-index:5}
+.result-title h2{margin-bottom:8px;font-size:46px;text-shadow:0 6px 18px rgba(0,100,85,.08)}
+.result-center-bag{
+  position:absolute;top:165px;right:50%;
+  transform:translateX(50%) rotate(-1deg);
+  width:min(42%,420px);
+  filter:drop-shadow(0 30px 35px rgba(0,100,85,.24));
+  z-index:1;
+  animation:bagReveal 1.2s ease both, bagGlow 2.8s ease-in-out 2.2s infinite;
+}
+@keyframes bagReveal{from{opacity:0;transform:translateX(50%) scale(.82) rotate(-8deg)}to{opacity:1;transform:translateX(50%) scale(1) rotate(-1deg)}}
+@keyframes bagGlow{
+  0%,100%{filter:drop-shadow(0 30px 35px rgba(0,100,85,.24))}
+  50%{filter:drop-shadow(0 30px 44px rgba(231,111,81,.46)) drop-shadow(0 12px 24px rgba(255,213,91,.42))}
+}
+.result-note{
+  position:absolute;
+  width:225px;
+  background:var(--paper);
+  border:2px solid rgba(231,111,81,.34);
+  border-radius:14px 22px 16px 20px;
+  padding:14px 15px;
+  box-shadow:0 18px 35px rgba(0,100,85,.14);
+  z-index:2;
+  font-size:14.5px;
+  line-height:1.45;
+  opacity:0;
+  animation:noteStack .58s cubic-bezier(.2,.9,.2,1.18) forwards;
+}
+.result-note b{color:var(--turq)}
+.result-note.n1{top:135px;right:3%;transform:rotate(4deg);animation-delay:.25s}
+.result-note.n2{top:135px;left:3%;transform:rotate(-4deg);animation-delay:.45s}
+.result-note.n3{top:245px;right:1.5%;transform:rotate(-3deg);animation-delay:.65s}
+.result-note.n4{top:245px;left:1.5%;transform:rotate(3deg);animation-delay:.85s}
+.result-note.n5{top:355px;right:2%;transform:rotate(4deg);animation-delay:1.05s}
+.result-note.n6{top:355px;left:2%;transform:rotate(-4deg);animation-delay:1.25s}
+.result-note.n7{top:465px;right:4%;transform:rotate(-3deg);animation-delay:1.45s}
+.result-note.n8{top:465px;left:4%;transform:rotate(3deg);animation-delay:1.65s}
+.result-note.n9{top:575px;right:10%;transform:rotate(4deg);animation-delay:1.85s}
+.result-note.n10{top:575px;left:10%;transform:rotate(-4deg);animation-delay:2.05s}
+@keyframes noteStack{from{opacity:0;transform:translateY(34px) scale(.82) rotate(0deg)}to{opacity:1}}
+.result-note.main{
+  width:430px;
+  max-height:430px;
+  overflow:auto;
+  right:50%;
+  top:365px;
+  transform:translateX(50%);
+  background:#fff;
+  border:2px solid rgba(231,111,81,.42);
+  z-index:4;
+  font-size:16px;
+  font-weight:600;
+  text-align:right;
+  opacity:0;
+  animation:resultRise .95s cubic-bezier(.18,.95,.24,1.18) 2.85s forwards;
+  box-shadow:0 22px 44px rgba(231,111,81,.18),0 22px 42px rgba(0,100,85,.14);
+}
+.result-note.main h3{margin:0 0 16px;font-size:24px;line-height:1.25;color:var(--turq);text-align:center}
+@keyframes resultRise{from{opacity:0;transform:translateX(50%) translateY(95px) scale(.82)}to{opacity:1;transform:translateX(50%) translateY(0) scale(1)}}
+.result-section{margin:0 0 14px;padding:0 0 12px;border-bottom:1px solid rgba(0,160,135,.18)}
+.result-section:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+.result-section-title{display:block;font-weight:900;color:var(--coral-dark);margin-bottom:6px}
+.result-section p{margin:0 0 8px;line-height:1.65;font-weight:500}
+.result-section p:last-child{margin-bottom:0}
+.final-quote{
+  position:relative;z-index:5;
+  margin:700px auto 0;
+  max-width:760px;
+  background:linear-gradient(135deg,#e9fff8,#fff9df);
+  border:2px solid rgba(0,160,135,.25);
+  border-radius:30px;
+  padding:26px 24px;
+  text-align:center;
+  font-size:23px;
+  line-height:1.65;
+  font-weight:900;
+  color:#25404b;
+  box-shadow:0 16px 36px rgba(0,160,135,.14);
+}
+.result-actions{position:relative;z-index:5;text-align:center;margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.diagnosisBtn{
+  text-decoration:none;
+  display:inline-block;
+  border-radius:999px;
+  background:linear-gradient(135deg,var(--turq),var(--coral));
+  color:white!important;
+  font-family:"Heebo",Arial,sans-serif;
+  font-size:23px;
+  font-weight:900;
+  padding:18px 38px;
+  min-width:min(100%,420px);
+  box-shadow:0 14px 28px rgba(0,160,135,.24);
+}
+.restartBtn{font-size:16px!important;padding:11px 22px!important;opacity:.9}
+
+@media(max-width:850px){
+  .page{padding:10px}
+  .shell{border-radius:30px}
+  header{align-items:flex-start;padding:26px 20px 60px}
+  header:after{bottom:-78px}
+  .logo{width:66px;height:66px;border-radius:18px}
+  h1{font-size:32px}.subtitle{font-size:16px}
+  main{padding:42px 18px 26px}
+  h2{font-size:30px}.lead{font-size:18px}
+  .game-intro{min-height:auto}
+  .game-intro:before{border-radius:34px 34px 34px 90px;inset:0}
+  .intro-head h2{font-size:36px}.intro-head p{font-size:18px}
+  .intro-play-area{min-height:410px}
+  .intro-bag-button{width:min(84%,360px);min-width:240px}
+  .floating-clue{font-size:15px;min-width:auto;padding:10px 13px}
+  .fc1{top:26px;right:4%}.fc2{top:74px;left:4%}.fc3{bottom:120px;right:3%}.fc4{bottom:90px;left:5%}.fc5{top:170px;right:0}.fc6{top:190px;left:0}
+  .intro-bottom-text{font-size:17px}
+  .quiz-layout{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .drop-panel,.bag-target{min-height:390px}
+  .bag-main-img{width:min(92%,330px);max-height:320px}
+  .next-under-bag{margin-top:-10px;width:min(90%,320px)}
+  .result-stage{min-height:auto;padding-bottom:10px}
+  .result-title h2{font-size:32px}
+  .result-center-bag{position:relative;top:auto;right:auto;transform:none;display:block;margin:20px auto;width:min(78%,320px);animation:none}
+  .result-note,.result-note.main{
+    position:relative;
+    top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+    transform:none!important;width:auto!important;margin:12px 0;
+    opacity:1;animation:none;max-height:none;overflow:visible;
+  }
+  .final-quote{margin:18px 0 0;font-size:19px;padding:20px 16px}
+  .diagnosisBtn{font-size:19px!important;min-width:0;width:100%}
+}
+
+
+/* split clean fixes */
+.card,
+.clue-on-bag,
+.floating-clue,
+.result-note:not(.main),
+.result-note:not(.main) b,
+.result-note:not(.main) .result-section-title{
+  color:#222 !important;
+}
+.card,
+.clue-on-bag,
+.result-note:not(.main){
+  font-weight:800;
+}
+
+/* Keep brand turquoise only for main titles and important CTA, not regular note text */
+.result-note.main h3{
+  color:var(--turq) !important;
+}
+
+/* Improved readable result card */
+.result-note.main{
+  width:520px !important;
+  max-height:580px !important;
+  padding:24px 26px !important;
+  border-radius:30px !important;
+  background:#ffffff !important;
+}
+.result-note.main h3{
+  font-size:26px !important;
+  line-height:1.35 !important;
+  text-align:center !important;
+  margin:0 0 18px !important;
+  padding-bottom:16px !important;
+  border-bottom:2px solid rgba(0,160,135,.18);
+}
+.result-section{
+  background:#fffdf8;
+  border:1px solid rgba(0,160,135,.16);
+  border-radius:20px;
+  padding:15px 17px;
+  margin:0 0 13px;
+  box-shadow:0 8px 18px rgba(0,100,85,.05);
+}
+.result-section-title{
+  display:block;
+  color:#222 !important;
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:10px;
+  padding:8px 10px;
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(0,160,135,.12),rgba(255,248,233,0));
+}
+.result-section p{
+  color:#222 !important;
+  font-size:16px;
+  line-height:1.75;
+  font-weight:500;
+  margin:0 0 8px;
+}
+.result-section p:last-child{margin-bottom:0}
+
+/* nicer reveal */
+@keyframes resultRise{
+  0%{opacity:0;transform:translateX(50%) translateY(100px) scale(.70)}
+  70%{opacity:1;transform:translateX(50%) translateY(-8px) scale(1.05)}
+  100%{opacity:1;transform:translateX(50%) translateY(0) scale(1)}
+}
+
+.final-quote{
+  background:linear-gradient(135deg,#e9fff8,#fff2df) !important;
+  border:3px solid rgba(231,111,81,.28) !important;
+}
+
+@media(max-width:850px){
+  .result-note.main{
+    width:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+}
+
+
+/* hard fix: remove leftover blue text */
+.intro-bottom-text,
+.intro-bottom-text p,
+.intro-bottom-text strong,
+.lead,
+.lead strong,
+p,
+.card,
+.clue-on-bag,
+.floating-clue,
+.result-note:not(.main),
+.result-note:not(.main) b{
+  color:#222 !important;
+}
+.intro-head h2,
+h2,
+.q,
+.result-note.main h3{
+  color:var(--turq) !important;
+}
+
+
+/* FINAL CARD-TABS PATCH — preserves original result layout, changes only center result card */
+.result-note.main{
+  width:560px !important;
+  max-height:620px !important;
+  overflow:auto !important;
+  padding:24px 28px !important;
+  border-radius:30px !important;
+}
+.result-note.main h3{
+  display:none !important;
+}
+.result-quick-summary{
+  background:linear-gradient(135deg,#effdf9,#fffdf8);
+  border:2px solid rgba(0,160,135,.18);
+  border-radius:24px;
+  padding:18px 20px;
+  margin:0 0 16px;
+  text-align:center;
+}
+.result-quick-summary .prefix{
+  display:block;
+  color:#222 !important;
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+.result-quick-summary .main-name{
+  display:block;
+  color:var(--turq) !important;
+  font-size:30px;
+  font-weight:900;
+  line-height:1.25;
+  margin-bottom:12px;
+}
+.result-quick-summary p{
+  color:#222 !important;
+  font-size:16px;
+  line-height:1.7;
+  margin:0 0 7px;
+  font-weight:600;
+}
+.result-tabs{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.result-tab{
+  background:#fffdf8;
+  border:1px solid rgba(0,160,135,.18);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 7px 16px rgba(0,100,85,.05);
+}
+.result-tab-title{
+  width:100%;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  background:#fffdf8 !important;
+  color:#222 !important;
+  padding:14px 16px;
+  text-align:right;
+  font-size:17px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  cursor:pointer;
+}
+.result-tab-title:hover{
+  transform:none !important;
+}
+.result-tab-title:after{
+  content:"⌄";
+  color:var(--coral);
+  font-size:20px;
+  transition:.25s ease;
+}
+.result-tab.open .result-tab-title{
+  background:linear-gradient(90deg,rgba(0,160,135,.12),rgba(255,248,233,0)) !important;
+}
+.result-tab.open .result-tab-title:after{
+  transform:rotate(180deg);
+}
+.result-tab-content{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .32s ease, padding .32s ease;
+  padding:0 16px;
+}
+.result-tab.open .result-tab-content{
+  max-height:420px;
+  overflow:auto;
+  padding:0 16px 16px;
+}
+.result-tab-content .result-section{
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  margin:0 0 14px !important;
+}
+.result-tab-content .result-section-title{
+  color:#222 !important;
+  background:transparent !important;
+  padding:0 !important;
+  margin:0 0 8px !important;
+  font-size:16px !important;
+  font-weight:900;
+}
+.result-tab-content p{
+  color:#222 !important;
+  font-size:15.5px;
+  line-height:1.75;
+  margin:0 0 8px;
+  font-weight:500;
+}
+.card,
+.clue-on-bag,
+.floating-clue,
+.result-note:not(.main),
+.result-note:not(.main) b,
+.intro-bottom-text,
+.intro-bottom-text p,
+.intro-bottom-text strong{
+  color:#222 !important;
+}
+@media(min-width:851px){
+  .result-stage{
+    min-height:1060px !important;
+  }
+  .final-quote{
+    margin-top:900px !important;
+  }
+}
+@media(max-width:850px){
+  .result-note.main{
+    width:auto !important;
+    max-height:none !important;
+    overflow:visible !important;
+  }
+  .result-tab.open .result-tab-content{
+    max-height:none;
+    overflow:visible;
+  }
+  .result-quick-summary .main-name{
+    font-size:24px;
+  }
+}
+
+
+/* remove duplicated inner headings inside result tabs */
+.result-tab-content .result-section-title{
+  display:none !important;
+}
+
+
+/* FINAL RESULTS: percentage boards + clue bulletin boards */
+.result-stage{position:relative;min-height:auto!important;padding:20px 10px 28px!important}
+.result-title{text-align:center;margin-bottom:24px}
+.result-title h2{font-size:44px;margin-bottom:8px}
+.result-title .result-intro{max-width:760px;margin:0 auto;color:#222!important;font-size:19px;line-height:1.65;font-weight:600}
+.percent-results{position:relative;z-index:5}
+.result-boards-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:26px 0 28px}
+.category-board{border:2px solid rgba(231,111,81,.24);border-radius:24px;background:radial-gradient(circle at 15% 12%,rgba(255,213,91,.25),transparent 35%),linear-gradient(180deg,#fffdf8,#fff8ed);box-shadow:0 12px 28px rgba(0,100,85,.09);padding:18px 14px 16px;text-align:center;cursor:pointer;transition:.18s ease;min-height:230px;display:flex;flex-direction:column;gap:12px}
+.category-board:hover,.category-board.active{transform:translateY(-4px);border-color:rgba(0,160,135,.42);box-shadow:0 18px 34px rgba(0,160,135,.15)}
+.category-percent{font-size:34px;font-weight:900;color:var(--coral-dark);line-height:1}
+.category-name{font-size:18px;font-weight:900;color:#222;line-height:1.25}
+.category-count{color:#667985;font-size:14px;font-weight:800}
+.mini-bar{height:9px;border-radius:99px;background:#f2ece4;overflow:hidden}.mini-bar span{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--turq),var(--coral))}
+.cork-board{flex:1;min-height:92px;border-radius:18px;padding:10px;background:linear-gradient(135deg,rgba(210,157,92,.16),rgba(255,248,233,.82)),repeating-linear-gradient(45deg,rgba(156,95,45,.055) 0 7px,rgba(255,255,255,.08) 7px 14px);border:1px solid rgba(155,95,45,.18);display:flex;flex-wrap:wrap;gap:7px;justify-content:center;align-content:flex-start}
+.cork-note{position:relative;background:var(--paper);color:#222!important;border:1px solid rgba(231,111,81,.28);border-radius:8px 12px 9px 13px;padding:8px 9px;font-size:12px;font-weight:800;line-height:1.35;box-shadow:0 7px 14px rgba(0,100,85,.08);width:100%;max-width:160px;transform:rotate(var(--note-rot,0deg))}
+.cork-note:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--coral);top:4px;right:50%;transform:translateX(50%);box-shadow:0 1px 4px rgba(0,0,0,.14)}
+.cork-note.empty{background:rgba(255,255,255,.65);border-style:dashed;color:#667985!important;box-shadow:none}.cork-note.empty:before{display:none}
+.board-action{color:var(--turq);font-weight:900;font-size:14px}
+.result-detail-panel{background:rgba(255,255,255,.92);border:2px solid rgba(0,160,135,.18);border-radius:34px 34px 34px 90px;box-shadow:0 18px 44px rgba(0,100,85,.10);padding:26px;margin-top:10px}
+.detail-head{text-align:center;margin-bottom:18px}.detail-head .detail-percent{display:inline-block;color:var(--coral-dark);font-size:34px;font-weight:900;margin-bottom:6px}.detail-head h3{color:var(--turq);margin:0 0 8px;font-size:32px;line-height:1.25}.detail-head p{color:#222;margin:0 auto;max-width:760px;font-size:18px;line-height:1.65;font-weight:600}
+.detail-clues-title{color:#222;font-size:20px;font-weight:900;margin:22px 0 12px}.detail-clues{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.detail-clue{position:relative;background:var(--paper);border:2px solid rgba(231,111,81,.30);border-radius:13px 22px 15px 20px;box-shadow:0 12px 22px rgba(0,100,85,.09);padding:16px 16px 14px;color:#222;font-size:15px;line-height:1.45;font-weight:800;width:calc(33.333% - 8px);min-width:210px;transform:rotate(var(--note-rot,0deg))}
+.detail-clue:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--coral);top:7px;right:50%;transform:translateX(50%);box-shadow:0 2px 5px rgba(0,0,0,.14)}
+.detail-clue.empty{background:#fff;border-style:dashed;color:#667985;transform:none}.detail-clue.empty:before{display:none}
+.detail-tabs{display:grid;grid-template-columns:1fr;gap:10px}.detail-tab{background:#fffdf8;border:1px solid rgba(0,160,135,.18);border-radius:20px;overflow:hidden;box-shadow:0 8px 18px rgba(0,100,85,.05)}
+.detail-tab-title{width:100%;border:0!important;box-shadow:none!important;border-radius:0!important;background:#fffdf8!important;color:#222!important;padding:15px 18px;text-align:right;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+.detail-tab-title:hover{transform:none!important}.detail-tab-title:after{content:"⌄";color:var(--coral);font-size:20px;transition:.25s ease}.detail-tab.open .detail-tab-title{background:linear-gradient(90deg,rgba(0,160,135,.12),rgba(255,248,233,0))!important}.detail-tab.open .detail-tab-title:after{transform:rotate(180deg)}
+.detail-tab-content{max-height:0;overflow:hidden;transition:max-height .32s ease,padding .32s ease;padding:0 18px}.detail-tab.open .detail-tab-content{max-height:520px;overflow:auto;padding:0 18px 18px}
+.detail-tab-content .result-section{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;margin:0 0 14px!important}.detail-tab-content .result-section-title{display:none!important}.detail-tab-content p{color:#222!important;font-size:16px;line-height:1.75;margin:0 0 8px;font-weight:500}
+.final-quote{margin-top:26px!important}.result-actions{margin-top:18px!important}.result-center-bag,.result-note:not(.main){display:none!important}
+@media(max-width:1050px){.result-boards-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:650px){.result-boards-grid{grid-template-columns:1fr}.result-detail-panel{padding:18px;border-radius:26px}.detail-clue{width:100%;min-width:0}.result-title h2{font-size:32px}.detail-head h3{font-size:25px}}
+
+
+/* FINAL 2.0 SUITCASE RESULT */
+.result-stage.suitcase-result{min-height:auto!important;padding:12px 8px 34px!important;position:relative;overflow:visible}
+.suitcase-hero{position:relative;z-index:5;text-align:center;padding:10px 0 18px}
+.suitcase-hero h2{margin:0 0 8px!important;font-size:44px!important;line-height:1.18!important;color:var(--turq)!important}
+.suitcase-hero p{margin:0 auto!important;max-width:760px;color:#222!important;font-size:19px;line-height:1.65;font-weight:700}
+.suitcase-open{position:relative;z-index:4;max-width:1080px;margin:0 auto;padding:34px 26px 30px;border-radius:46px 46px 46px 120px;background:radial-gradient(circle at 50% 0%,rgba(255,213,91,.26),transparent 28%),linear-gradient(180deg,#fff9e9 0%,#fffdf8 38%,#effdf9 100%);border:4px solid rgba(231,111,81,.30);box-shadow:inset 0 0 0 7px rgba(255,255,255,.55),0 28px 70px rgba(0,100,85,.16);overflow:hidden;animation:suitcaseOpen .85s cubic-bezier(.18,.95,.24,1.14) both}
+@keyframes suitcaseOpen{0%{opacity:0;transform:translateY(28px) scale(.94) rotate(-1deg)}70%{opacity:1;transform:translateY(-4px) scale(1.015) rotate(.4deg)}100%{opacity:1;transform:translateY(0) scale(1) rotate(0)}}
+.suitcase-open:before{content:"";position:absolute;top:-38px;right:50%;transform:translateX(50%);width:280px;height:78px;border:13px solid rgba(0,160,135,.32);border-bottom:0;border-radius:100px 100px 0 0;opacity:.72}
+.suitcase-open:after{content:"";position:absolute;inset:18px;border:2px dashed rgba(0,160,135,.20);border-radius:34px 34px 34px 92px;pointer-events:none}
+.suitcase-bag-watermark{position:absolute;top:34px;left:28px;width:190px;opacity:.16;filter:drop-shadow(0 18px 22px rgba(0,100,85,.20));transform:rotate(-7deg);z-index:0}
+.suitcase-label{position:relative;z-index:3;display:inline-block;background:#fff;color:#222;border:2px solid rgba(0,160,135,.22);border-radius:999px;padding:10px 20px;font-weight:900;box-shadow:0 10px 24px rgba(0,100,85,.08);margin-bottom:20px}.suitcase-label span{color:var(--turq)}
+.result-boards-grid{position:relative;z-index:4;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px;margin:12px 0 28px}
+.category-board{position:relative;border:2px solid rgba(156,95,45,.20);border-radius:26px;background:linear-gradient(135deg,rgba(210,157,92,.17),rgba(255,248,233,.92)),repeating-linear-gradient(45deg,rgba(156,95,45,.06) 0 8px,rgba(255,255,255,.08) 8px 16px);box-shadow:0 14px 30px rgba(0,100,85,.10);padding:16px 12px 14px;text-align:center;cursor:pointer;transition:.2s ease;min-height:260px;display:flex;flex-direction:column;gap:10px;animation:boardIn .55s cubic-bezier(.18,.95,.24,1.14) both}
+.category-board:nth-child(1){animation-delay:.05s}.category-board:nth-child(2){animation-delay:.12s}.category-board:nth-child(3){animation-delay:.19s}.category-board:nth-child(4){animation-delay:.26s}.category-board:nth-child(5){animation-delay:.33s}
+@keyframes boardIn{from{opacity:0;transform:translateY(35px) scale(.88)}to{opacity:1;transform:translateY(0) scale(1)}}
+.category-board:hover,.category-board.active{transform:translateY(-5px);border-color:rgba(0,160,135,.50);box-shadow:0 20px 38px rgba(0,160,135,.16)}
+.category-percent{font-size:36px;font-weight:900;color:var(--coral-dark);line-height:1}.category-name{font-size:18px;font-weight:900;color:#222;line-height:1.25}.category-count{color:#556b74;font-size:14px;font-weight:800;min-height:38px}
+.mini-bar{height:10px;border-radius:999px;background:rgba(255,255,255,.72);overflow:hidden;border:1px solid rgba(0,160,135,.10)}.mini-bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--turq),var(--coral))}
+.cork-board{flex:1;min-height:104px;border-radius:18px;padding:10px;background:rgba(255,255,255,.38);border:1px solid rgba(155,95,45,.18);display:flex;flex-wrap:wrap;gap:8px;justify-content:center;align-content:flex-start}
+.cork-note{position:relative;background:var(--paper);color:#222!important;border:1px solid rgba(231,111,81,.30);border-radius:8px 12px 9px 13px;padding:8px 9px;font-size:12px;font-weight:800;line-height:1.35;box-shadow:0 7px 14px rgba(0,100,85,.08);width:100%;max-width:170px;transform:rotate(var(--note-rot,0deg))}
+.cork-note:before,.detail-clue:before{content:"";position:absolute;width:9px;height:9px;border-radius:50%;background:var(--coral);top:4px;right:50%;transform:translateX(50%);box-shadow:0 1px 4px rgba(0,0,0,.14)}
+.cork-note.empty{background:rgba(255,255,255,.65);border-style:dashed;color:#667985!important;box-shadow:none}.cork-note.empty:before{display:none}.board-action{color:var(--turq);font-weight:900;font-size:14px}
+.suitcase-document{position:relative;z-index:5;max-width:960px;margin:26px auto 0;background:#fff;border:2px solid rgba(0,160,135,.18);border-radius:34px 34px 34px 90px;box-shadow:0 22px 50px rgba(0,100,85,.14);padding:28px;animation:paperPull .55s cubic-bezier(.18,.95,.24,1.14) both}
+@keyframes paperPull{from{opacity:0;transform:translateY(45px) scale(.94)}to{opacity:1;transform:translateY(0) scale(1)}}
+.detail-head{text-align:center;margin-bottom:20px;padding-bottom:18px;border-bottom:2px solid rgba(0,160,135,.15)}.detail-head .detail-percent{display:inline-block;color:var(--coral-dark);font-size:38px;font-weight:900;margin-bottom:6px}.detail-head h3{color:var(--turq);margin:0 0 8px;font-size:34px;line-height:1.25}.detail-head p{color:#222;margin:0 auto;max-width:780px;font-size:18px;line-height:1.65;font-weight:650}
+.detail-clues-title{color:#222;font-size:21px;font-weight:900;margin:20px 0 12px}.detail-clues{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:22px}
+.detail-clue{position:relative;background:var(--paper);border:2px solid rgba(231,111,81,.30);border-radius:13px 22px 15px 20px;box-shadow:0 12px 22px rgba(0,100,85,.09);padding:16px 16px 14px;color:#222;font-size:15px;line-height:1.45;font-weight:800;width:calc(33.333% - 8px);min-width:210px;transform:rotate(var(--note-rot,0deg))}.detail-clue:before{width:12px;height:12px;top:7px}.detail-clue.empty{background:#fff;border-style:dashed;color:#667985;transform:none}.detail-clue.empty:before{display:none}
+.detail-tabs{display:grid;grid-template-columns:1fr;gap:10px}.detail-tab{background:#fffdf8;border:1px solid rgba(0,160,135,.18);border-radius:20px;overflow:hidden;box-shadow:0 8px 18px rgba(0,100,85,.05)}
+.detail-tab-title{width:100%;border:0!important;box-shadow:none!important;border-radius:0!important;background:#fffdf8!important;color:#222!important;padding:15px 18px;text-align:right;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:space-between;cursor:pointer}.detail-tab-title:hover{transform:none!important}.detail-tab-title:after{content:"⌄";color:var(--coral);font-size:20px;transition:.25s ease}.detail-tab.open .detail-tab-title{background:linear-gradient(90deg,rgba(0,160,135,.12),rgba(255,248,233,0))!important}.detail-tab.open .detail-tab-title:after{transform:rotate(180deg)}
+.detail-tab-content{max-height:0;overflow:hidden;transition:max-height .32s ease,padding .32s ease;padding:0 18px}.detail-tab.open .detail-tab-content{max-height:520px;overflow:auto;padding:0 18px 18px}.detail-tab-content .result-section{background:transparent!important;border:0!important;box-shadow:none!important;border-radius:0!important;padding:0!important;margin:0 0 14px!important}.detail-tab-content .result-section-title{display:none!important}.detail-tab-content p{color:#222!important;font-size:16px;line-height:1.75;margin:0 0 8px;font-weight:500}
+.final-quote{margin-top:24px!important;position:relative;z-index:5}.result-actions{margin-top:18px!important;position:relative;z-index:5}
+.result-center-bag,.result-note:not(.main),.result-note.main{display:none!important}.card,.clue-on-bag,.floating-clue,.intro-bottom-text,.intro-bottom-text p,.intro-bottom-text strong{color:#222!important}
+@media(max-width:1050px){.result-boards-grid{grid-template-columns:repeat(2,1fr)}.suitcase-bag-watermark{width:140px;opacity:.12}}
+@media(max-width:650px){.suitcase-hero h2{font-size:32px!important}.suitcase-hero p{font-size:17px}.suitcase-open{padding:24px 14px 22px;border-radius:30px 30px 30px 70px}.result-boards-grid{grid-template-columns:1fr}.suitcase-document{padding:18px;border-radius:26px}.detail-clue{width:100%;min-width:0}.detail-head h3{font-size:25px}.detail-head .detail-percent{font-size:32px}}
+
+
+/* optional clues FIXED */
+.inst{line-height:1.65 !important;}
+.inst strong{color:#222 !important;font-weight:900 !important;}
+.next-under-bag{opacity:1 !important;pointer-events:auto !important;}
+.next-under-bag.skip-mode{
+  background:linear-gradient(135deg,#ffffff,#effdf9) !important;
+  color:var(--turq) !important;
+  border:2px solid rgba(0,160,135,.28) !important;
+  box-shadow:0 10px 24px rgba(0,100,85,.10) !important;
+}
+.next-under-bag.ready{
+  background:linear-gradient(135deg,var(--turq),var(--coral)) !important;
+  color:white !important;
+}
+
+
+/* final text update: highlight emotional examples */
+.detail-tab-content .result-section.result-section-example{
+  background:#fff9df !important;
+  border:2px solid rgba(231,111,81,.22) !important;
+  border-radius:18px !important;
+  padding:15px 16px !important;
+  margin:0 0 14px !important;
+  box-shadow:0 8px 18px rgba(0,100,85,.06) !important;
+}
+.detail-tab-content .result-section.result-section-example .result-section-title{
+  display:block !important;
+  color:var(--coral-dark) !important;
+  font-size:17px !important;
+  font-weight:900 !important;
+  margin:0 0 9px !important;
+}
+.detail-tab-content .result-section.result-section-example p{
+  color:#222 !important;
+}
+
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="app">
+    <div class="shell">
+
+      <header>
+        <div class="logo">
+          <img src="https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/2b/ec/56/73/2bec5673753ae4bf3c4ab71a9e284fcf/images/b3e42f31d7f02c8f3b314caeff29ab1c.gif?maxWidth=400" alt="המוח המנצח">
+        </div>
+        <div class="brand">
+          <h1>אוספת רמזים</h1>
+          <p class="subtitle">משחק קצר שיעזור לך לפענח מה ההתנהגות של הילד שלך מנסה לספר לך.</p>
+        </div>
+      </header>
+      <main>
+        <div class="meta">
+          <span id="step">איסוף רמזים</span>
+          <span id="count">0 מתוך 10 רמזים</span>
+        </div>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+
+<section id="quiz" class="screen active">
+          <div class="quiz-layout">
+            <div class="question-card">
+              <div class="q" id="q"></div>
+              <div class="inst">גררי רמז אחד בלבד אל תוך התיק. רוצה לבחור אחרת? גררי את הפתק מהתיק חזרה לאזור הכרטיסים.<br><strong>לא מצאת כאן תגובה שמתאימה לילד שלך?</strong> אם במקרה הזה הילד שלך מגיב בצורה רגועה ותקינה, פשוט עברי לרמז הבא. אין צורך לבחור פתק בכל שאלה.</div>
+              <div class="cards" id="cards"></div>
+              <div class="actions">
+                <button class="btn2" id="backBtn">לרמז הקודם</button>
+                <button class="btn2 restartBtn">להתחיל מחדש</button>
+              </div>
+            </div>
+
+            <div class="drop-panel">
+              <div class="bag-target" id="bag"></div>
+              <button id="next" class="next-under-bag" disabled>לרמז הבא</button>
+            </div>
+          </div>
+        </section>
+
+<section id="result" class="screen">
+          <div id="resultText"></div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+</div>
+<script>
+
+const bagImg = "https://images.ravpages.co.il/xsite_resources/user_content/cp_new_production/2b/ec/56/73/2bec5673753ae4bf3c4ab71a9e284fcf/images/4d881b6e051ea725c0f276211cf61df7.png?maxWidth=400";
+const STORAGE_KEY = "osefet_remazim_state_final";
+
+const questions = [
+  { q: "כשמגיע זמן שיעורי הבית, מה בדרך כלל קורה?", a: [
+    ["נלחץ, כועס או מתפרק", "emotional"],
+    ["מדלג על חלק מההוראות או מפספס פרטים קטנים", "details"],
+    ["מתחיל, אבל מאבד כיוון באמצע", "attention"],
+    ["לא מבין את ההוראות, קושי בהבנת הנקרא", "social"],
+    ["מתעקש לעשות בדרך שלו ולא לפי ההוראות", "rigidity"]
+  ]},
+  { q: "כשמשהו לא מסתדר לו כמו שרצה:", a: [
+    ["מתקשה להבין את הסיטואציה מהיבט אחר, מכיוון נוסף, יתקע על פרט שולי", "social"],
+    ["מתקשה מאוד במציאת פתרון טוב לבעיה", "rigidity"],
+    ["שוכח מה ניסה לעשות מלכתחילה", "attention"],
+    ["מתוסכל כי רואה באופן שטחי, לא שם לב לפרטים חשובים", "details"],
+    ["מתעצבן מהר וקשה לו להירגע", "emotional"]
+  ]},
+  { q: "כשמבקשים ממנו לעבור מפעילות אהובה למשהו אחר:", a: [
+    ["צריך הרבה תזכורות כדי לעבור", "attention"],
+    ["מתפרץ, בוכה או כועס", "emotional"],
+    ["מתווכח ולא מצליח לעבור בבת אחת לפעילות אחרת ללא הכנה מוקדמת", "rigidity"],
+    ["מתקשה להבין למה צריך להפסיק עכשיו", "social"]
+  ]},
+  { q: "כשהוא טועה או לא מצליח:", a: [
+    ["מתקשה לנסות דרך אחרת ומתפרץ בתסכול או מתווכח", "rigidity"],
+    ["מגלה שהטעות נגרמה בגלל פרט קטן שפספס", "details"],
+    ["מתקשה להסיק מסקנות ולחפש דרך יעילה יותר", "emotional"],
+    ["מאבד את רצף הפעולות שעשה, מתנתק", "attention"],
+    ["מתקשה להבין למה אחרים הצליחו והוא לא", "social"]
+  ]},
+  { q: "במשחקים או משימות שדורשים ריכוז:", a: [
+    ["מפספס פרטים קטנים במשחקים ובמשימות", "details"],
+    ["מתקשה להבין את הקונספט המרכזי, נתפס לפרטים לא רלוונטיים, שוליים", "social"],
+    ["מתחיל בהתלהבות ואז נוטש", "attention"],
+    ["מתקבע על כיוון חשיבה מסוים שרגיל בו", "rigidity"],
+    ["מתקשה לשמור על ריכוז מחשבתי לאורך זמן ומתייאש מהמשימה", "emotional"]
+  ]},
+  { q: "ביחסים עם אחים או חברים, מה הכי מוכר?", a: [
+    ["רוצה לקבוע את הכללים וחייב תמיד לנצח!", "rigidity"],
+    ["מתקשה לעקוב אחרי כל מה שקורה בשיחה או במשחק", "attention"],
+    ["כבד, “חופר”, מאריך בתיאורים ונתפס לפרטים הקטנים ומגיב בחוסר טקט", "social"],
+    ["יתחמק בלעזור לסדר דברים במקום, למיין ויעורר בכך תסכול מצד האחים", "details"],
+    ["מציק ומעצבן אותם ובדרך כלל יהיה מעורב במריבה (שהוא התחיל)", "emotional"]
+  ]},
+  { q: "כשקורה משהו לא נעים עם חבר:", a: [
+    ["מצטער לאחר מעשה, לא שם לב למה שעשה / לא חשב לפני מעשה", "emotional"],
+    ["נראה שלא נמצא לגמרי בסיטואציה, דברים קרו לו בלי כוונה, לא ידע להסביר מה ואיך בדיוק קרה", "attention"],
+    ["לא יודע להסביר את המקרה לפי הסדר המאורעות, מה קרה קודם ומה אחר כך וכו...", "details"],
+    ["בטוח שרק הוא צודק", "rigidity"],
+    ["מתקשה להבין למה החבר פעל כך או מה בעצם קרה כאן, או מה לא נעים בזה", "social"]
+  ]},
+  { q: "כשמישהו אומר משהו בצחוק:", a: [
+    ["לוקח את הדברים בצורה מילולית ולא מבין את העוקץ", "social"],
+    ["נפגע מאוד מהאמירה", "emotional"],
+    ["מפספס חלק מהשיחה", "attention"],
+    ["נתקע על מילה מסוימת", "rigidity"]
+  ]},
+  { q: "כשאת מסבירה לו משימה חדשה:", a: [
+    ["מתעקש לעשות בדרך שלו", "rigidity"],
+    ["שומע רק חלק מההוראות", "attention"],
+    ["נלחץ מראש ואומר “אני לא מצליח”", "emotional"],
+    ["מפספס פרטים קטנים וחשובים בהסבר", "details"],
+    ["יתקשה לעקוב אחרי ההוראות ולא יבין מה שנדרש ממנו / מצפים ממנו", "social"]
+  ]},
+  { q: "כשאת מבקשת ממנו להכין תיק לבית הספר:", a: [
+    ["מביא כמעט הכל, אבל מפספס פרט קטן וחשוב", "details"],
+    ["לא חושב מה הוא צריך להכניס ומתוסכל כשמעירים שחסר משהו", "emotional"],
+    ["מכניס רק את מה שהוא רוצה", "rigidity"],
+    ["שוכח חלק מהדברים שביקשת", "attention"],
+    ["לא מבין למה חשוב להכין מערכת", "social"]
+  ]}
+];
+
+const results = {
+  emotional: {
+    title: "הרמזים מצביעים בעיקר על קושי בוויסות רגשי",
+    sections: [
+      ["מה חשוב להבין?", `וויסות רגשי - המושג הזה קצת מתעתע בגלל שנראה שעוסק רק בקושי רגשי כשלמעשה היכולת של הוויסות מגיע מיכולת קוגניטיבית (במוח).
+מודל אפר"ת מסביר שכשיש ארוע, הפרשנות על הארוע שמגיע מהמוח מופיעה ראשון ואז זה משפיע על הרגש.
+אם החלק החושב במח מפותח ,זה מווסת את הרגש ואז התגובה תהיה יותר בשליטה
+כשהרגש מבעבע ותוסס ומתפרץ החוצה, זה מעיד על  חוסר ביכולת המוחית לאזן ולספק משקל נגד לרגש המתפרץ. ברגע שנשכלל ונפתח את השורש (=המוח), התגובה תהיה פרופורציונלית ומאוזנת.                        אין דבר רע בעצם הרגשות, הבעיה רק באיזון בתגובה.`],
+      ["דוגמא לחוסר וויסות שהמניע שלו בעצם בחולשה במוח -", `חבר לקח לילד את הכדור שלו ללא רשותו ומשחק בו
+הילד מרגיש כעס ודחף להרביץ לחבר -רגש
+הילד מרביץ לחבר = תגובה
+מה היה חסר בין הרגש לתגובה?
+המוח החושב . הילד יעצור רגע ויחשוב אם להרביץ או לא \\ לומר לחבר שהוא לא מרשה \\ ללכת לספר לאמא שלו
+ואז התגובה יכולה להיות מאוזנת למרות הרגש שעלה`],
+      ["דוגמא נוספת-", `אמא לא מרשה לילד לקחת ממתק לפני ארוחת ערב
+הילד מתוסכל ועצבני
+הוא הולך לארון ולוקח ממתק \\ הוא מרביץ לאח שלו מרוב עצבים
+הרגש התפרץ והתגובה היתה אוטומטית בלי להפעיל את המוח החושב
+כשזה כן מפותח: הילד יכול להסיח את דעתו במשהו אחר \\ יכול לקחת פרי \\ יחשוב סיבה ותוצאה - אם ארביץ לאח הקטן אמא תכעס עלי ויעצור את עצמו \\ וכו..`],
+      ["מסקנה", `דרך אימון במשחק אפשר לבנות נתיבים עצביים חדשים במח, המוח החושב מתחזק ומהווה משקל נגד ומאזן  את הרגש המתפרץ`]
+    ]
+  },
+  rigidity: {
+    title: "הרמזים מצביעים בעיקר על קושי בקיבעון מחשבתי",
+    sections: [
+      ["מה רואים מבחוץ?", `קיבעון מחשבתי
+ילדים עם קיבעון נתפסים כילדים עקשנים, לא זורמים, מתווכחים על כל דבר ונעולים על שלהם - "ראש בקיר"
+זה בהחלט מאתגר כל הורה ובכלל את כל הסביבה של הילד`],
+      ["מה קורה בפנים?", `אם נבין שהבעיה נמצאת במח וזה לא בעיה"התנהגותית" או התקבעות מבחירה , נוכל לגשת לאתגר הזה עם קצת יותר חמלה והבנה
+ילד עם קיבעון במחשבה יש לו אזור במוח שנתקע וננעל ואינו מאפשר באותו זמן שום אינטראקציה עם ה"שכל". הילד לא רואה אופציות אחרות והוא משוכנע שמה שנכון (בעיניו) בטוח נכון.
+כאילו ירד מסך שחור על החלק החושב במוח ואין שום אפשרויות תמרון החוצה.
+להפעיל מול הילד כוח לא יעזור. כוח מול כוח יביא פיצוץ!`],
+      ["מה אפשר לעשות?", `יש טכניקות כיצד לעזור לילד לא להתקע או לצאת מקיבעון: להכין אותו מראש לשינויים, לתת אופציות שונות לבחירה (להתקלח לפני ארוחת ערב או אחרי) אך זה דורש עבודה תמידית ודריכות מצד ההורה
+
+אפשר פשוט לפתח את האזור הזה במח, להגמיש אותו, לבנות נתיבים חדשים במח וכך למנוע את הקיבעון המחשבתי ולשחרר את הילד לחיים זורמים ומשוחררים.
+יש משחקים ייעודיים לפיתוח הגמישות המחשבתית הדורשים פתרון בעיות . המשחק עוקף את הצורך בוויכוחים, הסברים ותיווך לילד ומאפשר לפתח את היכולות האלה תוך כדי משחק והנאה.`]
+    ]
+  },
+  attention: {
+    title: "הרמזים מצביעים בעיקר על קושי בקשב וריכוז",
+    sections: [
+      ["הפרדה חשובה", `קשב וריכוז
+הם צמד חמד שתמיד מוזכרים בנשימה אחת למרות שהם 2 מושגים נפרדים
+יתכן ולילד תהיה חולשה ב2 אזורים במוח בו זמנית, אך לא תמיד זה יופיע ביחד.`],
+      ["מה זה קשב?", `קשב זה היכולת להיות ערני למרחב שלך, לשים לב ל2 דברים בו זמנית, להיות קשוב למה שקורה סביבך
+זה אזור במוח שנמצא בעוררות ופעילות תמידית, בערך ברוב שעות הערות שלנו, אלא אם כן יש שם חולשה בתפקוד של תאי המח
+ילד בלי קשב, יכול להתנתק, לבהות, לא לשמוע כשמדברים אליו, להיות עסוק בדבר אחד (למשל לקרוא) ולא לשים לב בו זמנית שאמא קוראת לו, לשבת ליד אמא על הספסל בגינה ולהמנע מלעלות על המתקנים, קשה לו עם עמידה בזמנים, מתקשה לשמור על נקיון בזמן האוכל ועוד סימפטומים שונים שמשתנים מילד לילד`],
+      ["ומה זה חוסר ריכוז?", `לעומת זאת חוסר ריכוז יבוא לידי ביטוי יותר בחוסר התמדה בדברים שמתחילים ובאי יכולת להיות עקביים בפעולות, אפילו דברים פשוטים ומונוטוניים שדורשים רק פעולה מתמשכת לאורך זמן. לדוגמא - לשבת להכין שיעורי בית, בזמן סביר ובלי הפסקות מרובות, לסדר חדר ביעילות ולסיים עד הסוף, להנות מפעולה כמו קריאה, משחק, בלי להתעייף ולהרגיש צורך "לנשום" ולהתאוורר כל כמה דקות`],
+      ["מה אפשר לפתח?", `מחקרים רבים מראים שניתן לפתח את האזור במוח האחראי על הערנות המרחבית על ידי משחק במרחב, תרגילי ספורט ותנועה ולהגיע לתפקוד טוב ללא צורך בתרופות.
+גם את טווח הריכוז ניתן להאריך על יד אימון המח דרך משחק או תרגול עם חוברות עבודה שונים.`]
+    ]
+  },
+  social: {
+    title: "הרמזים מצביעים בעיקר על קושי בהבנה חברתית",
+    sections: [
+      ["למה זה כל כך משמעותי?", `הבנה חברתית
+בתקופה האחרונה עלה מאוד למודעות הנושא של לקות חברתית, ילדים על הרצף , ASD ועוד
+לא אחת יש אבחון יתר בנושא הזה. לא צריך למהר לתת כותרות לילד, אלא להתמקד בפתרון יעיל שיקדם אותו
+הנושא החברתי מאוד חשוב, ילד שאינו מצליח ליצור קשרים עם הסובבים אותו, יחווה קושי וכאב רב. גם להורים זה עניין משמעותי. לאמא כואב יותר כשהילד שלה לא מוצא את מקומו בחברה, יותר מילד שלא מצליח מבחינה לימודית.`],
+      ["מה קורה במוח?", `הקושי נעוץ כמובן במח. המח הימני אחראי בין השאר על ראיית התמונה הכוללת ,הקונטקסט, הרגש והאינטואיציה, הבנת קודים חברתיים, ניואנסים וקריאה בין השורות של סיטואציות והבנת הבדלי מעמדות והיררכיה, הבנת מסרים, לספר רצף של מהלכים, הבנת הוראות ותפיסת הרעיון המרכזי.
+כשיש חולשה בתפקוד המח באזור זה, נראה לקות בהבנה חברתית`],
+      ["מה אפשר לעשות?", `המח הוא איבר גמיש ומתפתח. צריך לדייק את הגירוי הנכון לאזור הזה ולגרום לתאי מח להתעורר ולהתחיל לפעול. אני עובדת על כך דרך תרגול עם משחקים.`]
+    ]
+  },
+  details: {
+    title: "הרמזים מצביעים בעיקר על קושי בירידה לפרטים",
+    sections: [
+      ["מה התפקיד של הצד השמאלי במוח?", `היכולת של ירידה לפרטים
+הצד השמאלי במוח אחראי על שימת לב לפרטים, נתינת משמעות נכונה לכל פרט ואחסון של פרטים שונים בזכרון . הוא חשוב מאוד ללמידה.`],
+      ["לשם השוואה", `לשם השוואה - הצד הימני במח יפענח את המשמעות של דברים, בחוויה,בתחושה והצד השמאלי יאפשר הסבר מילולי, הגיוני. לכן הצד השמאלי מגיע לבשלות אחרי המוח הימני : ילד קטן מבין, מרגיש וחווה את העולם אך לא יודע עדיין לבטא את זה במלל, הביטוי השפתי יגיע רק בשלב מאוחר יותר.`],
+      ["איך זה יכול להתבטא?", `ילד שמתקשה ביכולת של שימת לב לפרטים עלול להתקשות בקריאה, לימוד משנה וגמרא, חשבון, דקדוק ובגיל צעיר יותר - קושי בזיהוי כמויות, צורות, צבעים ומספרים`],
+      ["מה אפשר לפתח?", `האימון המוחי יהיה גם דרך משחק שמעודד לראות כמות של פרטים בזמן קצר וכך להביא לאוטומציה בעיבוד של נתונים`]
+    ]
+  }
+};
+
+let i=0;
+let selected=null;
+let answers=[];
+let scores={};
+
+function $(id){return document.getElementById(id)}
+function show(id){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  $(id).classList.add("active");
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function init(){
+  answers=new Array(questions.length).fill(null);
+  scores={attention:0,rigidity:0,emotional:0,social:0,details:0};
+}
+function recalcScores(){
+  scores={attention:0,rigidity:0,emotional:0,social:0,details:0};
+  answers.forEach(ans=>{if(ans) scores[ans[1]]++});
+}
+function saveState(){
+  try{localStorage.setItem(STORAGE_KEY,JSON.stringify({i:i,answers:answers}))}catch(e){}
+}
+function loadState(){
+  try{
+    const raw=localStorage.getItem(STORAGE_KEY);
+    if(!raw) return false;
+    const state=JSON.parse(raw);
+    if(!state || !Array.isArray(state.answers)) return false;
+    answers=new Array(questions.length).fill(null);
+    state.answers.slice(0,questions.length).forEach((ans,idx)=>{
+      if(ans && Array.isArray(ans) && ans.length>=2) answers[idx]=ans;
+    });
+    i=Math.min(Math.max(Number(state.i)||0,0),questions.length-1);
+    recalcScores();
+    return true;
+  }catch(e){return false}
+}
+function clearState(){try{localStorage.removeItem(STORAGE_KEY)}catch(e){}}
+function update(){
+  $("bar").style.width=(i/questions.length*100)+"%";
+  $("step").textContent=i>=questions.length?"הפענוח מוכן":(i===0?"איסוף רמזים":"איסוף רמזים");
+  $("count").textContent=Math.min(i,questions.length)+" מתוך "+questions.length+" רמזים";
+  const backBtn=$("backBtn");
+  if(backBtn) backBtn.disabled=i===0;
+}
+function startGame(){
+  if(!loadState()){
+    i=0;
+    init();
+  }
+  render();
+  show("quiz");
+}
+function restart(){
+  i=0;
+  selected=null;
+  clearState();
+  init();
+  $("bar").style.width="0%";
+  $("step").textContent="פתיחה";
+  $("count").textContent="0 מתוך "+questions.length+" רמזים";
+  render(); show("quiz");
+}
+function bagDefault(){
+  $("bag").className="bag-target";
+  $("bag").innerHTML=
+    '<div class="bag-title-on">תיק הרמזים שלך</div>'+
+    '<img class="bag-main-img" src="'+bagImg+'" alt="תיק רמזים">'+
+    '<div class="bag-hint-on">גררי לכאן רמז אחד שמתאים לילד שלך</div>';
+}
+function bagChosen(x){
+  $("bag").className="bag-target locked";
+  $("bag").innerHTML=
+    '<div class="bag-title-on">רמז נאסף!</div>'+
+    '<img class="bag-main-img" src="'+bagImg+'" alt="תיק רמזים">'+
+    '<div class="clue-on-bag" id="clueOnBag" draggable="true" title="גררי חזרה כדי לבחור מחדש">'+safeText(x[0])+'</div>';
+  $("clueOnBag").addEventListener("dragstart",e=>{
+    e.dataTransfer.setData("text/plain","RETURN_CLUE");
+  });
+}
+function render(){
+  selected=answers[i];
+  update();
+  $("next").disabled=false;
+  $("next").textContent=i===questions.length-1?(selected?"לסיום ואיסוף הפענוח":"לסיום בלי רמז נוסף"):(selected?"לרמז הבא":"לרמז הבא בלי לבחור פתק");
+  if(selected){$("next").classList.add("ready");$("next").classList.remove("skip-mode")}else{$("next").classList.remove("ready");$("next").classList.add("skip-mode")}
+  $("q").textContent=questions[i].q;
+  $("cards").innerHTML="";
+  questions[i].a.forEach(x=>{
+    const c=document.createElement("div");
+    c.className="card";
+    c.draggable=!selected;
+    c.textContent=x[0];
+    if(selected)c.classList.add("disabled");
+    c.ondragstart=e=>{
+      if(selected){e.preventDefault();return}
+      c.classList.add("dragging");
+      e.dataTransfer.setData("text/plain",JSON.stringify(x));
+    };
+    c.ondragend=()=>c.classList.remove("dragging");
+    c.onclick=()=>{if(!selected) choose(x)};
+    $("cards").appendChild(c);
+  });
+  if(selected) bagChosen(selected); else bagDefault();
+  setupDrop();
+  setupReturnZone();
+}
+function setupReturnZone(){
+  const cards=$("cards");
+  cards.ondragover=e=>{
+    if(selected){
+      e.preventDefault();
+      cards.classList.add("return-zone");
+    }
+  };
+  cards.ondragleave=()=>cards.classList.remove("return-zone");
+  cards.ondrop=e=>{
+    e.preventDefault();
+    cards.classList.remove("return-zone");
+    if(e.dataTransfer.getData("text/plain")==="RETURN_CLUE") removeCurrentClue();
+  };
+}
+function setupDrop(){
+  const b=$("bag");
+  b.ondragover=e=>{
+    if(!selected){
+      e.preventDefault();
+      b.classList.add("over");
+    }
+  };
+  b.ondragleave=()=>b.classList.remove("over");
+  b.ondrop=e=>{
+    e.preventDefault();
+    b.classList.remove("over");
+    if(selected) return;
+    const data=e.dataTransfer.getData("text/plain");
+    if(data && data!=="RETURN_CLUE") choose(JSON.parse(data));
+  };
+}
+function choose(x){
+  if(selected)return;
+  selected=x;
+  answers[i]=x;
+  recalcScores();
+  saveState();
+  render();
+}
+function removeCurrentClue(){
+  answers[i]=null;
+  selected=null;
+  recalcScores();
+  saveState();
+  render();
+}
+function next(){
+  if(i<questions.length-1){
+    i++;
+    saveState();
+    render();
+  }else{
+    i=questions.length;
+    recalcScores();
+    clearState();
+    $("bar").style.width="100%";
+    $("step").textContent="הפענוח מוכן";
+    $("count").textContent=questions.length+" מתוך "+questions.length+" רמזים";
+    showResult();
+  }
+}
+function back(){
+  if(i>0){
+    i--;
+    saveState();
+    render();
+  }
+}
+function topResult(){
+  recalcScores();
+  return Object.entries(scores).sort((a,b)=>b[1]-a[1])[0][0];
+}
+function selectedTexts(){return answers.filter(Boolean).map(x=>x[0])}
+function safeText(text){
+  return String(text).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));
+}
+function paragraphs(text){
+  return String(text).split(/\n+/).map(line=>line.trim()).filter(Boolean).map(line=>'<p>'+safeText(line)+'</p>').join('');
+}
+function resultSections(r){
+  return r.sections.map(section=>'<div class="result-section"><span class="result-section-title">'+safeText(section[0])+'</span>'+paragraphs(section[1])+'</div>').join('');
+}
+
+function cleanResultName(title){
+  return safeText(String(title).replace("הרמזים מצביעים בעיקר על קושי ב","").trim());
+}
+
+function sectionToHtml(section){
+  if(!section) return "";
+  return '<div class="result-section"><span class="result-section-title">'+safeText(section[0])+'</span>'+paragraphs(section[1])+'</div>';
+}
+
+function resultSummaryHtml(r){
+  const first = r.sections && r.sections[0] ? String(r.sections[0][1]) : "";
+  const lines = first.split(/\n+/).map(x=>x.trim()).filter(Boolean).slice(0,3);
+  return '<div class="result-quick-summary">'+
+    '<span class="prefix">הרמזים מצביעים בעיקר על:</span>'+
+    '<span class="main-name">'+cleanResultName(r.title)+'</span>'+
+    lines.map(line=>'<p>'+safeText(line)+'</p>').join('')+
+    '</div>';
+}
+
+function resultTabsHtml(r, key){
+  const s = r.sections || [];
+  let tabs;
+  if(key === "emotional"){
+    tabs = [
+      ["מה זה בעצם?", [s[0]]],
+      ["איך זה נראה ביומיום?", [s[1], s[2]]],
+      ["איך אפשר לפתח?", [s[3]]],
+    ];
+  } else if(key === "rigidity"){
+    tabs = [
+      ["מה זה בעצם?", [s[1]]],
+      ["איך זה נראה ביומיום?", [s[0]]],
+      ["איך אפשר לפתח?", [s[2]]],
+    ];
+  } else if(key === "attention"){
+    tabs = [
+      ["מה זה בעצם?", [s[0], s[1]]],
+      ["איך זה נראה ביומיום?", [s[2]]],
+      ["איך אפשר לפתח?", [s[3]]],
+    ];
+  } else if(key === "social"){
+    tabs = [
+      ["מה זה בעצם?", [s[1]]],
+      ["איך זה נראה ביומיום?", [s[0]]],
+      ["איך אפשר לפתח?", [s[2]]],
+    ];
+  } else {
+    tabs = [
+      ["מה זה בעצם?", [s[0], s[1]]],
+      ["איך זה נראה ביומיום?", [s[2]]],
+      ["איך אפשר לפתח?", [s[3]]],
+    ];
+  }
+
+  return '<div class="result-tabs">'+tabs.map((tab,idx)=>{
+    const content = tab[1].filter(Boolean).map(sectionToHtml).join('') ||
+      '<div class="result-section"><p>המח הוא כמו מצנח. עובד הכי טוב כשהוא פתוח.</p><p>זה המטרה של "המח המנצח". לשחק. לפתח. להצליח.</p></div>';
+    return '<div class="result-tab '+(idx===0?'open':'')+'"><button type="button" class="result-tab-title">'+safeText(tab[0])+'</button><div class="result-tab-content">'+content+'</div></div>';
+  }).join('')+'</div>';
+}
+
+function resultCardHtml(r, key){
+  return resultSummaryHtml(r) + resultTabsHtml(r, key);
+}
+
+function setupResultTabs(){
+  document.querySelectorAll(".result-tab-title").forEach(btn=>{
+    btn.addEventListener("click",function(){
+      const item = btn.closest(".result-tab");
+      const wrap = btn.closest(".result-tabs");
+      wrap.querySelectorAll(".result-tab").forEach(other=>{
+        if(other !== item) other.classList.remove("open");
+      });
+      item.classList.toggle("open");
+    });
+  });
+}
+
+
+const resultMeta={emotional:{name:"ויסות רגשי"},rigidity:{name:"קיבעון מחשבתי"},attention:{name:"קשב וריכוז"},social:{name:"הבנה חברתית"},details:{name:"ירידה לפרטים"}};
+function getResultStats(){recalcScores();const total=answers.filter(Boolean).length||1;return ["emotional","attention","rigidity","social","details"].map(key=>{const clues=answers.filter(ans=>ans&&ans[1]===key).map(ans=>ans[0]);const count=clues.length;const pct=Math.round((count/total)*100);return{key,count,pct,clues,name:resultMeta[key].name};}).sort((a,b)=>b.count-a.count||b.pct-a.pct);}
+function resultShortSummary(r){const first=r.sections&&r.sections[0]?String(r.sections[0][1]):"";return first.split(/\n+/).map(x=>x.trim()).filter(Boolean).slice(0,2).map(line=>'<p>'+safeText(line)+'</p>').join('');}
+function sectionHtmlClean(section){if(!section)return"";const cls=String(section[0]).indexOf("דוגמא")===0?" result-section-example":"";return '<div class="result-section'+cls+'"><span class="result-section-title">'+safeText(section[0])+'</span>'+paragraphs(section[1])+'</div>';}
+function tabsForResult(key,r){const s=r.sections||[];if(key==="emotional")return[["מה זה בעצם?",[s[0]]],["איך זה נראה ביומיום?",[s[1],s[2]]],["איך אפשר לפתח?",[s[3]]]];if(key==="rigidity")return[["מה זה בעצם?",[s[1]]],["איך זה נראה ביומיום?",[s[0]]],["איך אפשר לפתח?",[s[2]]]];if(key==="attention")return[["מה זה בעצם?",[s[0],s[1]]],["איך זה נראה ביומיום?",[s[2]]],["איך אפשר לפתח?",[s[3]]]];if(key==="social")return[["מה זה בעצם?",[s[1]]],["איך זה נראה ביומיום?",[s[0]]],["איך אפשר לפתח?",[s[2]]]];return[["מה זה בעצם?",[s[0],s[1]]],["איך זה נראה ביומיום?",[s[2]]],["איך אפשר לפתח?",[s[3]]]];}
+function renderBoards(stats){return '<div class="result-boards-grid">'+stats.map((st,idx)=>{const mini=st.clues.length?st.clues.slice(0,3).map((clue,i)=>'<div class="cork-note" style="--note-rot:'+(i%2===0?'-2deg':'2deg')+'">'+safeText(clue)+'</div>').join(''):'<div class="cork-note empty">לא נאספו רמזים בתחום הזה</div>';return '<div class="category-board '+(idx===0?'active':'')+'" data-key="'+st.key+'"><div class="category-percent">'+st.pct+'%</div><div class="category-name">'+safeText(st.name)+'</div><div class="category-count">'+st.count+' רמזים הצביעו על התחום הזה</div><div class="mini-bar"><span style="width:'+st.pct+'%"></span></div><div class="cork-board">'+mini+'</div><div class="board-action">לחצי לפענוח המלא</div></div>';}).join('')+'</div>';}
+function renderDetail(st){const r=results[st.key]||results.attention;const clues=st.clues.length?st.clues.map((clue,idx)=>'<div class="detail-clue" style="--note-rot:'+(idx%3===0?'-2deg':idx%3===1?'2deg':'0deg')+'">'+safeText(clue)+'</div>').join(''):'<div class="detail-clue empty">לא נאספו רמזים בתחום הזה</div>';const tabs=tabsForResult(st.key,r).map((tab,idx)=>{const content=tab[1].filter(Boolean).map(sectionHtmlClean).join('');return '<div class="detail-tab '+(idx===0?'open':'')+'"><button type="button" class="detail-tab-title">'+safeText(tab[0])+'</button><div class="detail-tab-content">'+content+'</div></div>';}).join('');return '<div class="result-detail-panel" id="resultDetail"><div class="detail-head"><span class="detail-percent">'+st.pct+'%</span><h3>'+safeText(st.name)+'</h3><p>'+resultShortSummary(r)+'</p></div><div class="detail-clues-title">הרמזים שאספת בתחום הזה:</div><div class="detail-clues">'+clues+'</div><div class="detail-tabs">'+tabs+'</div></div>';}
+function setupPercentResults(stats){const detail=document.getElementById("resultDetailWrap");document.querySelectorAll(".category-board").forEach(board=>{board.addEventListener("click",function(){document.querySelectorAll(".category-board").forEach(b=>b.classList.remove("active"));board.classList.add("active");const st=stats.find(x=>x.key===board.dataset.key);detail.innerHTML=renderDetail(st);setupDetailTabs();detail.scrollIntoView({behavior:"smooth",block:"start"});});});setupDetailTabs();}
+function setupDetailTabs(){document.querySelectorAll(".detail-tab-title").forEach(btn=>{btn.addEventListener("click",function(){const item=btn.closest(".detail-tab");const wrap=btn.closest(".detail-tabs");wrap.querySelectorAll(".detail-tab").forEach(other=>{if(other!==item)other.classList.remove("open");});item.classList.toggle("open");});});}
+
+function buildClueNotes(clues){
+  let out="";
+  for(let idx=0;idx<questions.length;idx++){
+    const clueText=clues[idx]?safeText(clues[idx]):"רמז שעדיין לא נאסף";
+    out+='<div class="result-note n'+(idx+1)+'"><b>רמז '+(idx+1)+':</b><br>'+clueText+'</div>';
+  }
+  return out;
+}
+function showResult(){
+  const stats = getResultStats();
+  $("resultText").innerHTML =
+    '<div class="result-stage suitcase-result">'+
+      '<div class="suitcase-hero">'+
+        '<h2>כל הרמזים נאספו!!<br>תיק הרמזים נפתח</h2>'+
+        '<p>כל הפתקים שאספת יצאו מהתיק והסתדרו לפי תחומי הקושי האפשריים. אם דילגת על חלק מהרמזים — הם פשוט לא נספרים בתוצאה. לחצי על כל לוח כדי לראות את הרמזים ואת הפענוח המלא.</p>'+
+      '</div>'+
+      '<div class="suitcase-open">'+
+        '<img class="suitcase-bag-watermark" src="'+bagImg+'" alt="תיק רמזים">'+
+        '<div class="suitcase-label">פענוח <span>תיק הרמזים</span></div>'+
+        renderBoards(stats)+
+        '<div id="resultDetailWrap">'+renderDetail(stats[0])+'</div>'+
+      '</div>'+
+      '<div class="final-quote">המח הוא כמו מצנח. עובד הכי טוב כשהוא פתוח.<br>זה המטרה של "המח המנצח". לשחק. לפתח. להצליח.</div>'+
+      '<div class="result-actions"><a class="diagnosisBtn" href="https://nechamysalzberg.minisite.ms/n/176656" target="_blank" rel="noopener">לקביעת אבחון לייזר אצל נחמי</a><button class="restartBtn">לנסות שוב</button></div>'+
+    '</div>';
+
+  show("result");
+  document.querySelectorAll(".restartBtn").forEach(btn=>btn.addEventListener("click",restart));
+  setupPercentResults(stats);
+}
+
+document.addEventListener("DOMContentLoaded",function(){
+  init();
+  $("next").addEventListener("click",next);
+  $("backBtn").addEventListener("click",back);
+  document.querySelectorAll(".restartBtn").forEach(btn=>btn.addEventListener("click",restart));
+  $("count").textContent="0 מתוך "+questions.length+" רמזים";
+  startGame();
+});
+
+</script>
+</body>
+</html>
